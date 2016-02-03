@@ -5,16 +5,19 @@ import random
 import numpy as np
 
 
-def sin_theta_sum(theta):
+def sin_theta_sum(variables):
+    theta = 0
+    for var in variables:
+        theta += var
     return np.sin(theta)
 
 
-def gen_random_value(count, rmin, rmax):
-    value = 0
+def gen_random_variables(count, rmin, rmax):
+    variables = []
     for i in range(count):
-        value += np.random.uniform(rmin, rmax)
+        variables.append(np.random.uniform(rmin, rmax))
         # test_range(rmin, rmax, value)
-    return value
+    return variables
 
 
 def run_monte_carlo(samples, function, func_coeff, func_vars):
@@ -28,7 +31,7 @@ def run_monte_carlo(samples, function, func_coeff, func_vars):
 
 
 def sin_monte_element(rmax):
-    value = gen_random_value(8, 0, rmax)
+    value = gen_random_variables(8, 0, rmax)
     result = sin_theta_sum(value)
     return result
 
@@ -37,7 +40,7 @@ def main():
     rmax = np.pi/8
     samples = 10000000
     coefficient = 1000000
-    volume = np.power(np.pi/8, 8)
+    volume = np.power(rmax, 8)
     func_coeff = coefficient*volume
     func_vars = rmax
     result = run_monte_carlo(samples, sin_monte_element, func_coeff, func_vars)
