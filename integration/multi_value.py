@@ -22,3 +22,5 @@ def step(samples):
     iterations = 25
     values = [integration.run_single(samples) for i in range(iterations)]
     return np.average(values), np.std(values)
+
+main()
