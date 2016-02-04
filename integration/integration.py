@@ -1,6 +1,3 @@
-# Python Packages
-import random
-
 # External Packages
 import numpy as np
 
@@ -24,10 +21,9 @@ def run_monte_carlo(samples, function, func_coeff, func_vars):
     value = 0
     for i in range(samples):
         if i % 10000 == 0:
-            print(i)
+            print(i)  # Status Output
         value += function(func_vars)
-    value = value*func_coeff/samples
-    return value
+    return value*func_coeff
 
 
 def sin_monte_element(rmax):
@@ -36,20 +32,13 @@ def sin_monte_element(rmax):
     return result
 
 
-def main():
+def run_single(samples):
     rmax = np.pi/8
-    samples = 10000000
-    coefficient = 1000000
     volume = np.power(rmax, 8)
-    func_coeff = coefficient*volume
+    func_coeff = 1000000
     func_vars = rmax
-    result = run_monte_carlo(samples, sin_monte_element, func_coeff, func_vars)
-    print(result)
-
-
-def test_range(rmin, rmax, value):
-    if (value <= rmin or value >= rmax):
-        print(False)
-
-
-main()
+    values = run_monte_carlo(samples,
+                             sin_monte_element,
+                             func_coeff, func_vars)
+    total = volume*values/samples
+    return total
