@@ -12,11 +12,10 @@ def main():
     f.close()
     for i in range(steps):
         samples = int(np.rint(np.power(10, (i+1)/2)))
-        print(samples)
-        #value, error = step(samples)
-        #with open('samples.dat', 'a') as f:
-        #    f.write('%s\t%s\t%s\n' % (samples, value, error))
-        #f.close()
+        value, error = step(samples)
+        with open('samples.dat', 'a') as f:
+            f.write('%s\t%s\t%s\n' % (samples, value, error))
+        f.close()
 
 
 def step(samples):
