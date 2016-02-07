@@ -3,16 +3,16 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
-def load():
+def load(filename):
     samples = []
     values = []
     errors = []
-    with open('samples.dat', 'r') as f:
+    with open(filename, 'r') as f:
         lines = list(f)
     f.close()
     for line in lines[1:]:
         line = line.split('\t')
-        samples.append(int(line[0]))
+        samples.append(float(line[0]))
         values.append(float(line[1]))
         errors.append(float(line[2]))
 
@@ -48,7 +48,7 @@ def error_plot(samples, errors):
 
 
 def main():
-    samples, values, errors = load()
+    samples, values, errors = load('samples.dat')
     value_plot(samples, values, errors)
     error_plot(samples, errors)
 
