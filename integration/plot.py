@@ -35,11 +35,11 @@ def value_plot(samples, values, errors):
 
 def error_plot(samples, errors):
     constant = errors[0]/(np.power(samples[0], -1/2))
-    samples = np.log(samples)
-    errors = np.log(errors)
+    samples = np.log10(samples)
+    errors = np.log10(errors)
     plt.figure()
     plt.plot(samples, errors, label='Calculated error')
-    plt.plot(samples, np.log(constant) + samples*-1/2, label='Predicted error')
+    plt.plot(samples, np.log10(constant) + samples*-1/2, label='Predicted error')
     plt.xlabel('Log of Monte-Carlo Samples')
     plt.ylabel('Log of Error in Estimate')
     plt.title('Log-Log plot of Error against Samples showing -1/2 gradient')
