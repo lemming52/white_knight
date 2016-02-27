@@ -30,7 +30,7 @@ def slit(width, wavelength, D):
         f.write('x1\tAmplitude\tPhase\n')
         for x in x_range:
             x2 = width/2 - x
-            x1 = -width - x
+            x1 = -width/2 - x
             real, imag = complex_amp(coeff, x1, x2)
             mag = magnitude(real, imag)
             phi = phase(real, imag)
