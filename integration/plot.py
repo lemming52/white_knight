@@ -4,6 +4,9 @@ import numpy as np
 
 
 def load(filename):
+    # Load and store a 3 value file.
+    # Multipurpose beyond ('samples, values errors')
+    # I know I'm bad.
     samples = []
     values = []
     errors = []

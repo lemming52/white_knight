@@ -7,9 +7,9 @@ import plot
 
 def cornu_plot(C, S):
     plt.figure()
-    plt.plot(S, C)
-    plt.xlabel('S')
-    plt.ylabel('C')
+    plt.plot(C, S)
+    plt.xlabel('C')
+    plt.ylabel('S')
     plt.title('Cornu Spiral')
     plt.savefig("cornu.png")
 

@@ -1,3 +1,4 @@
+# Custom Packages
 import fresnel
 
 # External Packages
@@ -6,6 +7,8 @@ from scipy.integrate import quad
 
 
 def coord_pair(u):
+    # Calculate the C and S values for a particular u, which give
+    # coordinates for the spiral.
     coeff = np.pi/2
     C = quad(fresnel.cos_integrand, 0, u, args=(coeff, ))
     S = quad(fresnel.sin_integrand, 0, u, args=(coeff, ))

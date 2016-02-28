@@ -11,7 +11,8 @@ def combined_plot(x, mags, phase, D):
     axarr[0].set_ylabel('Amplitude')
     axarr[1].plot(x, phase)
     axarr[1].set_ylabel('Phase')
-    axarr[0].set_xlabel('x')
+    axarr[1].set_xlabel('x / cm')
+    axarr[0].set_title('Fresnel Diffraction - D = %scm' % D)
     f.savefig("diffraction_%scm.png" % D)
 
 
@@ -21,7 +22,7 @@ def plot_length(D):
 
 
 def main():
-    distances = [30, 50, 100]
+    distances = [30, 50, 100]  # Configured for the particular lengths
     for D in distances:
         plot_length(D)
 
