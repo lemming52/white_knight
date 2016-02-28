@@ -3,10 +3,9 @@ CORE EXERCISE ##################################################################
 FILES
 
 Python
-integration.py - Package of all functions used.
-single_value.py - Used to calulate a value for a single number of Samples.
-multi_value.py - Used to calculate values for a range of samples.
-plot.py - Used to plot the data.
+integration.py - evaluate the montecarlo method across a suitable range and for the particular value.
+plot_monte.py - Used to plot the data.
+tools.py - load method
 
 Pictures
 Values.png - Plot of the calculated values for each sample number with associated error - Generated
@@ -17,21 +16,21 @@ Samples.dat - Storage of values from multi_value.py - Generated
 
 RESULTS
 10^7
-Value: 537.185
-Error: 0.010
+Value: 537.188
+Error: 0.011
 
 RUNNING ORDER:
 To regenerate results run:
-multi_value.py
-plot.py
+integration.py
+plot_monte.py
 
-REQUIREMENTS
-python==3.5.1
-numpy==1.10.1
-matplotlib==1.5.0
+EXTERNAL PACKAGES
+numpy
+matplotlib
+
 
 COMMENTARY
-Successfully managed to code a monte-carlo method and estimate a value close to the true result, with the value and error getting closer as samples increase. Runtime is rather long however. In terms of coding style, the style was more influced by generalisation and clarity rather than a quick an blunt script style program based on personal preference. However, while the final code has vestiges of generality, it is pretty specific.
+Successfully managed to code a monte-carlo method and estimate a value close to the true result, with the value and error getting closer as samples increase. Restructure code from initial method to use memory intensive but rapid numpy functions. In terms of coding style, the style was more influced by generalisation and clarity rather than a quick an blunt script style program based on personal preference. However, while the final code has vestiges of generality, it is pretty specific.
 
 
 SUPPLEMENTARY 1 ###############################################################################
@@ -54,11 +53,10 @@ RUN
 cornu.py
 plot_cornu.py
 
-REQUIREMENTS
-python==3.5.1
-numpy==1.10.1
-matplotlib==1.5.0
-scipy==0.16.0
+EXTERNAL PACKAGES
+numpy
+matplotlib
+scipy
 
 SUPPLEMENTARY 2 ###############################################################################
 
@@ -84,9 +82,9 @@ RUN
 diffraction.py
 plot_diffraction.py
 
-REQUIREMENTS
-python==3.5.1
-numpy==1.10.1
-matplotlib==1.5.0
-scipy==0.16.0
+EXTERNAL PACKAGES
+numpy
+matplotlib
+scipy
+
 
