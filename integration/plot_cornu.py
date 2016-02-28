@@ -15,7 +15,7 @@ def cornu_plot(C, S):
 
 
 def main():
-    U, C, S = plot.load('cornu.dat')
+    U, C, S = load('cornu.dat')
     cornu_plot(C, S)
 
 main()
