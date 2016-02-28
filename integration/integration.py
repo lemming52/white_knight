@@ -2,43 +2,32 @@
 import numpy as np
 
 
-def sin_theta_sum(variables):
-    theta = 0
-    for var in variables:
-        theta += var
-    return np.sin(theta)
+def gen_random_array(num_count, rmin, rmax, length, iterations):
+    # Make use of numpy to generate an array of random numbers
+    array = np.random.uniform(rmin, rmax, (iterations, length, num_count))
+    return array
 
 
-def gen_random_variables(count, rmin, rmax):
-    variables = []
-    for i in range(count):
-        variables.append(np.random.uniform(rmin, rmax))
-    return variables
+def sin_theta_sum(rand_array, coeff):
+    values = np.sin(np.sum(rand_array, axis=2))
+    averages = coeff*np.average(values, axis=1)
+    return np.average(averages), np.std(averages)
 
 
-def run_monte_carlo(samples, function, func_coeff, func_vars):
-    # Master monte-carlo function, runs the main sample loop.
-    value = 0
-    for i in range(samples):
-        value += function(func_vars)
-    return value*func_coeff
-
-
-def sin_monte_element(rmax):
-    # Calculate the integrand for a single loop
-    value = gen_random_variables(8, 0, rmax)
-    result = sin_theta_sum(value)
-    return result
-
-
-def run_single(samples):
-    # Function configured to run the particular integral required
-    rmax = np.pi/8  # Solely works on same limit intengrals
+def evaluate(samples, iterations):
+    rmin = 0
+    rmax = np.pi/8
     volume = np.power(rmax, 8)
-    func_coeff = 1000000
-    func_vars = rmax
-    values = run_monte_carlo(samples,
-                             sin_monte_element,
-                             func_coeff, func_vars)
-    total = volume*values/samples
-    return total
+    coeff = 1000000*volume
+    rand_array = gen_random_array(8, rmin, rmax, samples, iterations)
+    value, error = sin_theta_sum(rand_array, coeff*volume)
+    return value, error
+
+
+def main():
+    value, error = evaluate(10000000, 2)
+    print(value)
+    print(error)
+
+
+main()

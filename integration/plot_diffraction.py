@@ -1,5 +1,5 @@
 # Custom Packages
-from plot import load
+from tools import load
 
 # External Packages
 import matplotlib.pyplot as plt

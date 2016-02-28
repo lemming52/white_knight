@@ -2,7 +2,7 @@
 import matplotlib.pyplot as plt
 
 # Custom Packages
-import plot
+from tools import load
 
 
 def cornu_plot(C, S):
