@@ -3,15 +3,25 @@ import matplotlib.pyplot as plt
 import matplotlib.animation as anim
 import numpy as np
 
+# Custom Packages
+import tools
+
+# Get input to designate system for plotting
+label = input('Enter config file label (e.g. core): ')
+config = tools.load_config(label)
 fig = plt.figure()
 plt.axis('square')
-ax = plt.axes(xlim=(-2.5, 2.5), ylim=(-2.5, 2.5))
+
+# Define limits of plot relative to the lengths of the rods
+lim = (config['L1'] + config['L2'])*1.25
+
+ax = plt.axes(xlim=(-lim, lim), ylim=(-lim, lim))
 mass1, = ax.plot([], [], 'o', lw=9)
 mass2, = ax.plot([], [], 'o', lw=9)
 rod1, = ax.plot([], [], lw=2)
 rod2, = ax.plot([], [], lw=2)
 
-positions = np.loadtxt('double_positions.txt')
+positions = np.loadtxt('double_positions_%s.txt' % label)
 t = positions[:, 0]
 x1 = positions[:, 1]
 y1 = positions[:, 2]
