@@ -27,12 +27,14 @@ def frequencies(solutions, label, config):
     t = solutions[:, 0]
     theta1 = solutions[:, 1]
     theta2 = solutions[:, 2]
+    # Generate the power specctrum of the displacements
     freq_1 = np.power(abs(np.fft.fft(theta1)), 2)
     freq_2 = np.power(abs(np.fft.fft(theta2)), 2)
     timestep = t[1] - t[0]
 
-    freq = 2*np.pi*np.fft.fftfreq(freq_1.size, d=timestep)
+    freq = 2*np.pi*np.fft.fftfreq(freq_1.size, d=timestep)  # Convert to rads
     coeff = config['g']/config['L1']
+    # Calculated predicted frequencies
     mode_freq1 = ((2 + config['initial'][1]/config['initial'][0])*coeff)**(1/2)
     mode_freq2 = ((2 - config['initial'][1]/config['initial'][0])*coeff)**(1/2)
 
@@ -45,6 +47,7 @@ def frequencies(solutions, label, config):
     axarr[1].set_xlim([0, 8])
     axarr[1].set_xlabel('w / rad')
     axarr[0].set_title('Power Spectrum for Angular Displacements - %s' % label)
+    # Add vertical lines at predicted peak values.
     axarr[0].axvline(mode_freq1, 0, np.amax(freq_1), color='r', label='Prediction 1')
     axarr[1].axvline(mode_freq1, 0, np.amax(freq_2), color='r', label='Prediction 1')
     axarr[0].axvline(mode_freq2, 0, np.amax(freq_1), color='g', label='Prediction 2')
