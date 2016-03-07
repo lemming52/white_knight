@@ -48,6 +48,45 @@ Managed to solve the system of equations and generate a plot for the core exerci
 
 SUPPLEMENTARY 1 ###############################################################################
 
+FILES
+
+Python
+pendulum.py
+config_moden.json
+tools.py
+plot_double.py
+animate.py
+normal_modes.py - plot variation of angular displacement with time and anaylse the displacement with fft to remove the frequency. Also generates the predicted values for the frequency.
+
+Pictures
+positions_moden.png
+energies_moden.png
+energies_moden_wide.png
+angular_displacements_moden.png - Plot of variation of angular displacement with time
+angular_displacements_freq_moden.png - power specrum of angular displacement ideally showing the predicted frequencies
+
+Data
+double_solutions_moden.txt
+double_positions_moden.txt
+double_energies_moden.txt
+
+RUNNING ORDER:
+To regenerate results run:
+pendulum.py
+    specify: mode1, mode2
+plot_double.py
+    specify: mode1, mode2
+normal_modes
+    specify: mode1, mode2
+
+EXTERNAL PACKAGES
+numpy
+scipy
+matplotlib
+
+
+COMMENTARY
+Methods preserved from core exercise seem to generate same results, and show the predicted in phase/ out of phase relationships for the symmetric/antisymmetric mmodes of the double pendulum. However, the frequencies do not match the predicted values, with a small discrepancy for the low frequency symmetric mode and a large discrepancy on the high frequency mode.
 
 
 SUPPLEMENTARY 2 ###############################################################################
