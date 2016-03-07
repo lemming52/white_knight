@@ -23,11 +23,42 @@ def displacements(solutions, label, config):
     plt.savefig('angular_displacements_%s.png' % label)
 
 
+def frequencies(solutions, label, config):
+    t = solutions[:, 0]
+    theta1 = solutions[:, 1]
+    theta2 = solutions[:, 2]
+    freq_1 = np.power(abs(np.fft.fft(theta1)), 2)
+    freq_2 = np.power(abs(np.fft.fft(theta2)), 2)
+    timestep = t[1] - t[0]
+
+    freq = 2*np.pi*np.fft.fftfreq(freq_1.size, d=timestep)
+    coeff = config['g']/config['L1']
+    mode_freq1 = ((2 + config['initial'][1]/config['initial'][0])*coeff)**(1/2)
+    mode_freq2 = ((2 - config['initial'][1]/config['initial'][0])*coeff)**(1/2)
+
+    f, axarr = plt.subplots(2)
+    axarr[0].plot(freq, freq_1, label='Theta 1')
+    axarr[0].set_ylabel('w^2')
+    axarr[0].set_xlim([0, 8])
+    axarr[1].plot(freq, freq_2, label='Theta 2')
+    axarr[1].set_ylabel('w^2')
+    axarr[1].set_xlim([0, 8])
+    axarr[1].set_xlabel('w / rad')
+    axarr[0].set_title('Power Spectrum for Angular Displacements - %s' % label)
+    axarr[0].axvline(mode_freq1, 0, np.amax(freq_1), color='r', label='Prediction 1')
+    axarr[1].axvline(mode_freq1, 0, np.amax(freq_2), color='r', label='Prediction 1')
+    axarr[0].axvline(mode_freq2, 0, np.amax(freq_1), color='g', label='Prediction 2')
+    axarr[1].axvline(mode_freq2, 0, np.amax(freq_2), color='g', label='Prediction 2')
+    axarr[0].legend(loc='upper center')
+    axarr[1].legend(loc='upper center')
+    f.savefig("angular_displacements_freq_%s.png" % label)
+
+
 def main():
     label = input('Enter config file label (e.g. core): ')
     config = tools.load_config(label)
     solutions = np.loadtxt('double_solutions_%s.txt' % label)
     displacements(solutions, label, config)
-    positions = np.loadtxt('double_positions_%s.txt' % label)
+    frequencies(solutions, label, config)
 
 main()
