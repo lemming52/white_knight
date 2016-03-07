@@ -42,5 +42,7 @@ def animate(i):
     return mass1, mass2, rod1, rod2
 
 animation = anim.FuncAnimation(fig, animate, init_func=init,
-                               frames=len(t), interval=10, blit=True)
+                               frames=len(t),
+                               interval=config['interval'],
+                               blit=True)
 plt.show()
