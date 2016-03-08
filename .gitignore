@@ -1,0 +1,10 @@
+double_solutions_rand*
+config_rand*
+double_energies_rand*
+double_positions_rand*
+double_solutions_pert*
+config_pert*
+double_energies_pert*
+double_positions_pert*
+*.png
+
