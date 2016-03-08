@@ -29,7 +29,7 @@ def plot_energy(label):
     E_var = (E_total-E_total[0])/E_total[0]
     plt.figure()
     plt.plot(t, E_var)
-    plt.xlabel('t')
+    plt.xlabel('t / s')
     plt.ylabel('Fractional Energy Deviation against Initial')
     plt.title('Energy Variation against Time: %s' % label)
     plt.savefig('energies_%s.png' % label)
@@ -37,7 +37,7 @@ def plot_energy(label):
     # Zoomed out plot
     plt.figure()
     plt.plot(t, E_total)
-    plt.xlabel('t')
+    plt.xlabel('t / s')
     plt.ylabel('Total Energy')
     # Generate limits from data
     plt.ylim([E_total[0]*1.1, 0])  # Negative defined energy

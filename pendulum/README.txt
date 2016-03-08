@@ -6,7 +6,7 @@ Python
 pendulum.py - master method, solves the differential equations using odeint and stores
               the solutions, positional and energy informations in text files. Requires
               user input to select configuration and store info appropriately.
-config_core.json - configuration file for the core exercise, stored in JSON format.
+config/config_core.json - configuration file for the core exercise, stored in JSON format.
 tools.py - useful methods, e.g. loading the json.
 plot_double.py - plotting function, generates trajectories of the masses, energy variation
                  plots both zoomed and wide angle. Requires user input to select the system.
@@ -25,9 +25,9 @@ energies_core_wide.png - plot of energy against time zoomed out, so that the con
                          is visible.
 
 Data
-double_solutions_core.txt - solutions yi of the differential equation
-double_positions_core.txt - cartesian coordinates of the masses
-double_energies_core.txt - kinetic and potential energies of each mass
+data/double_solutions_core.txt - solutions yi of the differential equation
+data/double_positions_core.txt - cartesian coordinates of the masses
+data/double_energies_core.txt - kinetic and potential energies of each mass
 
 RUNNING ORDER:
 To regenerate results run:
@@ -52,7 +52,7 @@ FILES
 
 Python
 pendulum.py
-config_moden.json
+config/config_moden.json
 tools.py
 plot_double.py
 animate.py
@@ -66,9 +66,12 @@ angular_displacements_moden.png - Plot of variation of angular displacement with
 angular_displacements_freq_moden.png - power specrum of angular displacement ideally showing the predicted frequencies
 
 Data
-double_solutions_moden.txt
-double_positions_moden.txt
-double_energies_moden.txt
+data/double_solutions_moden.txt
+data/double_positions_moden.txt
+data/double_energies_moden.txt
+
+NOTES
+moden - mode1, mode2
 
 RUNNING ORDER:
 To regenerate results run:
@@ -86,10 +89,48 @@ matplotlib
 
 
 COMMENTARY
-Methods preserved from core exercise seem to generate same results, and show the predicted in phase/ out of phase relationships for the symmetric/antisymmetric mmodes of the double pendulum. However, the frequencies do not match the predicted values, with a small discrepancy for the low frequency symmetric mode and a large discrepancy on the high frequency mode.
+Methods preserved from core exercise seem to generate same results, and show the predicted in phase/ out of phase relationships for the symmetric/antisymmetric mmodes of the double pendulum. The modes were shown to match the predicted values, but only for verysmall angles, using larger angles gave a large discrepancy in the anti-symmetric mode and a small one for the symmetric.
 
 
 SUPPLEMENTARY 2 ###############################################################################
 
+FILEs
+
+Python
+pendulum.py
+config/config_randn.json
+config/config_pertn.json
+tools.py
+config_gen.py - Generate 100 configuration files to investigate chaos
+chaos.py - Generate the data files for each configuration
+plot_chaos.py - Produce chaos plots from the data files.
+
+Pictures
+displacements_chaotic_*.png - Plot of angular displacements against time.
+positions_chaotic_*.png - Plot of trajectories for all systems.
+
+Files
+data/data/double_solutions_*n.txt
+data/double_positions_*n.txt
+data/double_energies_*n.txt
+
+Notes
+* - rand or pert, which designate whether the set of systems are random or perturbed from a base file
+*n - rand1, rand2, pert1, pert2 ...
+
+RUNNING ORDER
+gen_config.py
+    Either with both or one of pert() and rand() uncommented to generate that system of config files.
+comment out main() in pendulum.py
+chaos.py
+    specify pert or rand as appropriate
+uncomment main() in pendulum.py
+plot_chaos.py
+    specify pert or rand
+
+EXTERNAL PACKAGES
+numpy
+scipy
+matplotlib
 
 

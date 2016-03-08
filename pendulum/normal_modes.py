@@ -13,12 +13,12 @@ def displacements(solutions, label, config):
     sim_time = config['sim_time']
 
     plt.figure()
-    plt.plot(t, theta1, label='Theta 1')
-    plt.plot(t, theta2, label='Theta 2')
+    plt.plot(t, theta1, label=r'$\theta_1$')
+    plt.plot(t, theta2, label=r'$\theta_2$')
     plt.xlim([0, sim_time/6])  # Arbitrary scaling
     plt.legend()
     plt.xlabel('t')
-    plt.ylabel('Angular Displacement / rads')
+    plt.ylabel(r'$\theta$ / rad')
     plt.title('Angular Displacement against time for both Masses : %s' % label)
     plt.savefig('angular_displacements_%s.png' % label)
 
@@ -39,14 +39,14 @@ def frequencies(solutions, label, config):
     mode_freq2 = ((2 - config['initial'][1]/config['initial'][0])*coeff)**(1/2)
 
     f, axarr = plt.subplots(2)
-    axarr[0].plot(freq, freq_1, label='Theta 1')
-    axarr[0].set_ylabel('w^2')
+    axarr[0].plot(freq, freq_1, label=r'$\theta_1$')
+    axarr[0].set_ylabel(r'w$^2$ / (rad/s)$^2$')
     axarr[0].set_xlim([0, 8])
-    axarr[1].plot(freq, freq_2, label='Theta 2')
-    axarr[1].set_ylabel(r'$w^2$')
+    axarr[1].plot(freq, freq_2, label=r'$\theta_2$')
+    axarr[1].set_ylabel(r'w$^2$ / (rad/s)$^2$')
     axarr[1].set_xlim([0, 8])
     axarr[1].set_xlabel('w / rad/s')
-    axarr[0].set_title('Power Spectrum for Angular Displacements - %s' % label)
+    axarr[0].set_title('Power Spectrum for pendulum motion - %s' % label)
     # Add vertical lines at predicted peak values.
     axarr[0].axvline(mode_freq1, 0, np.amax(freq_1), color='r', label='Prediction 1')
     axarr[1].axvline(mode_freq1, 0, np.amax(freq_2), color='r', label='Prediction 1')
