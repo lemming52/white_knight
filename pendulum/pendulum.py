@@ -115,9 +115,9 @@ def evaluate(label):
     sol = np.insert(solution, 0, t, axis=1)
 
     # Store the data using the label as an indicator
-    np.savetxt('double_solutions_%s.txt' % label, sol, delimiter='\t')
-    np.savetxt('double_positions_%s.txt' % label, positions, delimiter='\t')
-    np.savetxt('double_energies_%s.txt' % label, energies, delimiter='\t')
+    np.savetxt('data/double_solutions_%s.txt' % label, sol, delimiter='\t')
+    np.savetxt('data/double_positions_%s.txt' % label, positions, delimiter='\t')
+    np.savetxt('data/double_energies_%s.txt' % label, energies, delimiter='\t')
 
 
 def position(solution, L1, L2, t):

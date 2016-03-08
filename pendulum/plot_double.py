@@ -5,7 +5,7 @@ import numpy as np
 
 def plot_pendulum(label):
     # Plot the mass positions for all times, giving trajectories
-    positions = np.loadtxt('double_positions_%s.txt' % label)
+    positions = np.loadtxt('data/double_positions_%s.txt' % label)
     m1 = positions[:, 1:3]
     m2 = positions[:, 3:5]
     plt.figure()
@@ -20,7 +20,7 @@ def plot_pendulum(label):
 
 def plot_energy(label):
     # Plot the energy variation
-    energies = np.loadtxt('double_energies_%s.txt' % label)
+    energies = np.loadtxt('data/double_energies_%s.txt' % label)
     t = energies[:, 0]
     E_total = np.sum(energies[:, 1:5], axis=1)  # Sum all energy components
 

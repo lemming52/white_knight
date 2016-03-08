@@ -43,9 +43,9 @@ def frequencies(solutions, label, config):
     axarr[0].set_ylabel('w^2')
     axarr[0].set_xlim([0, 8])
     axarr[1].plot(freq, freq_2, label='Theta 2')
-    axarr[1].set_ylabel('w^2')
+    axarr[1].set_ylabel(r'$w^2$')
     axarr[1].set_xlim([0, 8])
-    axarr[1].set_xlabel('w / rad')
+    axarr[1].set_xlabel('w / rad/s')
     axarr[0].set_title('Power Spectrum for Angular Displacements - %s' % label)
     # Add vertical lines at predicted peak values.
     axarr[0].axvline(mode_freq1, 0, np.amax(freq_1), color='r', label='Prediction 1')
@@ -60,7 +60,7 @@ def frequencies(solutions, label, config):
 def main():
     label = input('Enter config file label (e.g. core): ')
     config = tools.load_config(label)
-    solutions = np.loadtxt('double_solutions_%s.txt' % label)
+    solutions = np.loadtxt('data/double_solutions_%s.txt' % label)
     displacements(solutions, label, config)
     frequencies(solutions, label, config)
 

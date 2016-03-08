@@ -5,7 +5,7 @@ import numpy as np
 
 def plot(label, i, cmap):
     # Plot the mass positions for all times, giving trajectories
-    positions = np.loadtxt('double_positions_%s%s.txt' % (label, i,))
+    positions = np.loadtxt('data/double_positions_%s%s.txt' % (label, i,))
     m1 = positions[:1000, 1:3]
     m2 = positions[:1000, 3:5]
 
@@ -14,7 +14,7 @@ def plot(label, i, cmap):
 
 
 def disp(label, i, cmap):
-    solutions = np.loadtxt('double_solutions_%s%s.txt' % (label, i, ))
+    solutions = np.loadtxt('data/double_solutions_%s%s.txt' % (label, i, ))
     t = solutions[:1000, 0]
     theta1 = solutions[:1000, 1]
     theta2 = solutions[:1000, 2]

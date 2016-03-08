@@ -21,7 +21,7 @@ mass2, = ax.plot([], [], 'o', lw=9)
 rod1, = ax.plot([], [], lw=2)
 rod2, = ax.plot([], [], lw=2)
 
-positions = np.loadtxt('double_positions_%s.txt' % label)
+positions = np.loadtxt('data/double_positions_%s.txt' % label)
 t = positions[:, 0]
 x1 = positions[:, 1]
 y1 = positions[:, 2]

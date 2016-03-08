@@ -19,7 +19,7 @@ def rand():
     for i in range(0, 100):
         config = config_main
         config['initial'] = gen_initial()
-        with open('config_rand%s.json' % i, 'w') as f:
+        with open('config/config_rand%s.json' % i, 'w') as f:
             json.dump(config, f)
         f.close()
 
@@ -29,7 +29,7 @@ def pert():
     for i in range(0, 100):
         config = config_main
         config['initial'][1] = config['initial'][1]+0.035
-        with open('config_pert%s.json' % i, 'w') as f:
+        with open('config/config_pert%s.json' % i, 'w') as f:
             json.dump(config, f)
         f.close()
         config_main = config
