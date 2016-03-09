@@ -30,6 +30,7 @@ data/double_positions_core.txt - cartesian coordinates of the masses
 data/double_energies_core.txt - kinetic and potential energies of each mass
 
 RUNNING ORDER:
+mkdir data and config if they do not exist (I know I could have done this in the code)
 To regenerate results run:
 pendulum.py
     specify: core
@@ -89,7 +90,7 @@ matplotlib
 
 
 COMMENTARY
-Methods preserved from core exercise seem to generate same results, and show the predicted in phase/ out of phase relationships for the symmetric/antisymmetric mmodes of the double pendulum. The modes were shown to match the predicted values, but only for verysmall angles, using larger angles gave a large discrepancy in the anti-symmetric mode and a small one for the symmetric.
+Methods preserved from core exercise seem to generate same results, and show the predicted in phase/ out of phase relationships for the symmetric/antisymmetric mmodes of the double pendulum. The modes were shown to match the predicted values, but only for verysmall angles, using larger angles gave a large discrepancy in the anti-symmetric mode and a small one for the symmetric. The trajectories generated are correct but not useful.
 
 
 SUPPLEMENTARY 2 ###############################################################################

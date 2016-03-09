@@ -13,6 +13,7 @@ def plot_pendulum(label):
     plt.plot(m2[:, 0], m2[:, 1], label='Mass 2')
     plt.xlabel('x')
     plt.ylabel('y')
+    plt.ylim()
     plt.title('Double Pendulum Trajectories: %s' % label)
     plt.legend()
     plt.savefig('positions_%s.png' % label)
