@@ -6,5 +6,7 @@
     "wavelength" : 0.0000005,
     "args" : {},
     "correction" : false,
-    "ap_func" : "hole"
+    "ap_func" : "slit",
+    "predicted" : true,
+    "lim" : 0.03
 }
