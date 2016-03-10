@@ -1,0 +1,12 @@
+{
+    "width" : 0.0001,
+    "distance" : 0.005,
+    "extent" : 0.005,
+    "centre" : 0.0025,
+    "wavelength" : 0.0000005,
+    "args" : {},
+    "correction" : true,
+    "ap_func" : "slit",
+    "predicted" : false,
+    "lim" : 0.0003
+}

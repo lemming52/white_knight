@@ -1,0 +1,15 @@
+{
+    "width" : 0.002,
+    "distance" : 0.5,
+    "extent" : 0.005,
+    "centre" : 0.0025,
+    "wavelength" : 0.0000005,
+    "args" : {
+        "m" : 8,
+        "s" : 0.0001
+        },
+    "correction" : true,
+    "ap_func" : "grating",
+    "predicted" : false,
+    "lim" : 0.02
+}
