@@ -88,7 +88,7 @@ def evaluate(config, ap_func, correction, label):
                                            d=conversion)
     y = np.fft.fftshift(y)
 
-    plot(amplitude, y, slit, label)
+    plot(amplitude, y, config, label)
 
 
 def convert(value, conversion):
@@ -105,7 +105,7 @@ def correct(aperture, wavelength, distance, conversion):
     return correction*aperture
 
 
-def plot(amplitude, y, slit, label):
+def plot(amplitude, y, config, label):
     # Plot the diffraction pattern
 
     intensity = np.power(abs(amplitude), 2)  # Convert to intensity
@@ -113,24 +113,24 @@ def plot(amplitude, y, slit, label):
 
     plt.figure()
 
-    if slit['predicted']:
+    if config['predicted'] is not False:
         # Plot the predicted sinc function if single slits
-        plt.plot(y, predicted(y, slit), label='Predicted')
+        plt.plot(y, predicted(y, config), label='Predicted')
     plt.plot(y, intensity, color='r', label='Calculated')
 
-    plt.xlim(-slit['lim'], slit['lim'])
+    plt.xlim(-config['lim'], config['lim'])
     plt.ylim(0, 1.1)
     plt.xlabel('y / m')
     plt.ylabel('Fractional Intensity compared to Maximum')
-    plt.title('Diffaction Pattern: %s, D=%sm' % (slit['ap_func'],
-                                                 slit['distance']))
+    plt.title('Diffaction Pattern: %s, D=%sm' % (config['ap_func'],
+                                                 config['distance']))
     plt.legend()
     plt.savefig('pattern_%s.png' % label)
 
 
-def predicted(y, slit):
+def predicted(y, config):
     # Single slit sinc intensity function
-    factor = slit['width']*y/(slit['wavelength']*slit['distance'])
+    factor = config['width']*y/(config['wavelength']*config['distance'])
     predicted = np.power(np.sinc(factor), 2)
     return predicted
 
