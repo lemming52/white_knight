@@ -59,7 +59,7 @@ def evaluate(config, ap_func, correction, label):
     label - system/ exercise identifier
     """
 
-    N = 2097152  # Samples for the aperture / Resolution
+    N = 2097152  # Samples for the aperture / Resolution, power of 2
 
     aperture = gen_aperture_1d(N)
 

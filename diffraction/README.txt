@@ -23,7 +23,7 @@ matplotlib
 
 
 COMMENTARY
-The plot produced for core 1 shows the expected sinc relationship, so much so the predicted plot is completely overlapped by the calculated. For the second core exercise, the plot produced the expected results, showing
+The plot produced for core 1 shows the expected sinc relationship, so much so the predicted plot is completely overlapped by the calculated. For the second core exercise, the plot produced the sensible results, showing the regular spacing between maxima expected due to the sinusoidal variation in the aperture.
 
 
 SUPPLEMENTARY
@@ -52,6 +52,7 @@ matplotlib
 
 
 COMMENTARY
+The fresnel correction was easy to slot into my existing code. The single slit pattern is reminiscent of a fresnel single slit convolved onto the finite fraunhofer slit pattern. The pattern for the sinusoidal grating shows fresnel noise convolved onto the fraunhofer diffraction pattern for the grating.
 
 CONFIG JSON FILE
 ###############################################################################
